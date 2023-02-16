@@ -1,5 +1,6 @@
 import Card from './components/UI/Card';
 import './App.css';
+import CardProvider from './store/CartProvider';
 import Cart from './components/Cart/Cart';
 import React, {useState} from 'react';
 import Meals from './components/Meals/Meals';
@@ -17,13 +18,13 @@ function App() {
   return (
    <div>
     <Card>
-      <React.Fragment>
+      <CardProvider>
         {cartIsShown && <Cart onClose={hideCartHandler}/>}
       <Header onShowCart={showCartHandler} ></Header>
       <main>
 <Meals></Meals>
       </main>
-      </React.Fragment>
+      </CardProvider>
     </Card>
    </div>
   );
